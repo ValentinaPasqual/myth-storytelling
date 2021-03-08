@@ -9,6 +9,9 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+<script src="https://d3js.org/d3.v3.min.js"></script>
+
+
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -26,6 +29,25 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+
+  <!-- Make versions of D3 cohexist in the same page -->
+
+  <script src="https://d3js.org/d3.v4.js"></script> 
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script>
+    d3version4 = d3
+    window.d3 = null
+  </script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>   <!-- OR https://d3js.org/d3.v3.min.js ??-->
+  <script>
+    d3version3 = d3
+    window.d3 = null
+    // test it worked
+    console.log('v3', d3version3.version)
+    console.log('v4', d3version4.version)
+  </script> 
+
 
   
     <!-- leaflet MAP 
@@ -54,14 +76,13 @@
 
 <!-- D3 -->
 
-<script src="https://d3js.org/d3.v4.js"></script>
+
 
 <!-- Load color palettes -->
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
 <!--AJAX FOR ALL IMPORTS-->  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 
   <!-- =======================================================
   * Template Name: MyResume - v2.2.1
@@ -72,6 +93,8 @@
 </head>
 
 <body>
+
+
 
   <!-- ======= Mobile nav toggle button ======= -->
   <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
@@ -239,7 +262,12 @@
             <div class="col-md-12 col-lg-8 m-0 p-0"><div id="whereChartTwo" class="d-flex justify-content-center"></div></div>
           </div>
         </div>
-        </section><!-- End WHAT Section -->
+        </section>
+        
+        
+        
+        
+        <!-- End WHAT Section -->
 
     <!-- ======= Where Section ======= -->
     <section id="where" class="where">
@@ -291,7 +319,7 @@
 
         <div class="row">
 
-          <p>INSTERT HERE WHEN CONTENT</p>
+          <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1IJkxDCrBZKBI03Ffwcx0wG6bhplb4gox0-IHh_H0SAM&font=Default&lang=en&start_at_end=true&initial_zoom=7&start_at_slide=100&height=650' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
 
         </div>
 
@@ -363,7 +391,6 @@
   </script>
 
 
-
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -387,6 +414,10 @@
 <script type='text/javascript' src='data/map/leaf-demo.js'></script> -->
 <!-- <script type="text/javascript" src="Horizontal-Vertical-Timeline-Plugin-jQuery/dist/js/timeline.min.js"></script> -->
 <script type="text/javascript" src="data/d3_heatmap.js"></script>
+
+
+
+
 
 
 
