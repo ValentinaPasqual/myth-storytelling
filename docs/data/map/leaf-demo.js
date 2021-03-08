@@ -29,7 +29,9 @@ for ( var i = 0; i < markers.length; ++i )
               '<br/><b>Item Title:</b> ' + markers[i].title +
               '<br/><b>Item URI:</b> '  + '<a href=' + markers[i].collocation + '>' + markers[i].item + '</a>' +
               '<br/><b>Collocation Name:</b> ' + markers[i].label +
-              '<br/><b>Collocation URI:</b> ' + '<a href=' + markers[i].collocation + '>' + markers[i].collocation + '</a>';
+              '<br/><b>Wikidata:</b> ' + '<a href=' + markers[i].collocation + '>' + markers[i].collocation + '</a>';
+              '<br/><b>Represented Categories: </b>' + markers[i].categsLabels;
+
 
   var m = L.marker( [markers[i].lat, markers[i].lng], {icon: myIcon} )
                   .bindPopup( popup );
