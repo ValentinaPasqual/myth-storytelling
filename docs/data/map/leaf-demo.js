@@ -6,7 +6,7 @@ var map = L.map( 'map', {
   zoom: 2
 });
 
-L.tileLayer.grayscale( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer.grayscale( 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
  subdomains: ['a','b','c']
 }).addTo( map );
