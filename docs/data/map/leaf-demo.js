@@ -6,7 +6,7 @@ var map = L.map( 'map', {
   zoom: 2
 });
 
-L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer.grayscale( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
  subdomains: ['a','b','c']
 }).addTo( map );
@@ -25,12 +25,10 @@ var markerClusters = L.markerClusterGroup();
 
 for ( var i = 0; i < markers.length; ++i )
 {
-  var popup = '<div class="container"><div class="row"><div class="col-3"></div><div class="col-8"><img src=' + markers[i].img + ' width="100"></div><div class="col-3" ></div></div></div>' +
-              '<br/><b>Item Title:</b> ' + markers[i].title +
-              '<br/><b>Item URI:</b> '  + '<a href=' + markers[i].collocation + '>' + markers[i].item + '</a>' +
-              '<br/><b>Collocation Name:</b> ' + markers[i].label +
-              '<br/><b>Wikidata:</b> ' + '<a href=' + markers[i].collocation + '>' + markers[i].collocation + '</a>';
-              '<br/><b>Represented Categories: </b>' + markers[i].categsLabels;
+  var popup = '<div class="container" style="font-family: Garamond, serif !important;"><div class="row"><div class="col-3"></div><div class="col-8"><img src=' + markers[i].img + ' width="100"></div><div class="col-3" ></div></div></div>' +
+              '<br/><b style="font-family: \"Trebuchet MS\', sans-serif !Important">Item Title:</b> ' + markers[i].title +
+              '<br/><b style="font-family: \"Trebuchet MS\', sans-serif !Important">Collocation:</b> '  + markers[i].label + ', ' + markers[i].cityLabel + ' (' + markers[i].stateLabel + ')' + 
+              '<br/><b style="font-family: \"Trebuchet MS\', sans-serif !Important">External Reference:</b> ' + '<a href=' + '\'' + markers[i].extRef + '\'target="__blank">' + 'Geonames ID' + '</a>';
 
 
   var m = L.marker( [markers[i].lat, markers[i].lng], {icon: myIcon} )

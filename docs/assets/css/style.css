@@ -10,12 +10,12 @@
 --------------------------------------------------------------*/
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-body, #hero p {
+body, #hero p, .leaflet-popup-content {
   font-family: Garamond, serif !important; 
   color: #272829;
 }
 
-a, nav, #hero p .typed {font-family: 'Trebuchet MS', sans-serif !Important}
+a, nav, #hero p .typed, #list-puntate ul li, .card-footer, .leaflet-popup-content > b {font-family: 'Trebuchet MS', sans-serif !Important}
 
 a {
   color: #333333;
@@ -63,30 +63,30 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
+/* spinner == loader */
+
+/* Center the loader */
 #preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  overflow: hidden;
-  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  content: url('statue.svg');
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #333333;
-  border-top-color: #fff;
-  border-bottom-color: #fff;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: animate-preloader 1s linear infinite;
-  animation: animate-preloader 1s linear infinite;
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @-webkit-keyframes animate-preloader {
@@ -250,8 +250,8 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
-  background: url("../img/hero-bg.jpg") top right no-repeat;
+  height: 50vh;
+  background: white; 
   background-size: cover;
   position: relative;
 }
@@ -1226,7 +1226,10 @@ section {
   border-right: none;
   border-left: 1em solid #eeeeee;
   border-bottom: 1em solid transparent;
+  text-align: left;
 }
+
+.box.arrow-right {  text-align: justify !Important; }
 
 .box.arrow-bottom:after {
   content: " ";
@@ -1284,3 +1287,100 @@ section {
   font-size: 16px;
   line-height: 20px;
 }
+
+
+
+/* FIRST 4 CARDS */
+
+div [class^="col-"]{
+  padding-left:5px;
+  padding-right:5px;
+}
+.card{
+  transition:0.5s;
+  cursor:pointer;
+}
+.card-title{  
+  font-size:15px;
+  transition:1s;
+  cursor:pointer;
+}
+.card-title i{  
+  font-size:15px;
+  transition:1s;
+  cursor:pointer;
+  color:#ffa710
+}
+.card-title i:hover{
+  transform: scale(1.25) rotate(100deg); 
+  color:#18d4ca;
+  
+}
+.card:hover{
+  transform: scale(1.05);
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+}
+
+
+.card::before, .card::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: scale3d(0, 0, 1);
+  transition: transform .3s ease-out 0s;
+  background: rgba(255, 255, 255, 0.1);
+  content: '';
+  pointer-events: none;
+}
+.card::before {
+  transform-origin: left top;
+}
+.card::after {
+  transform-origin: right bottom;
+}
+.card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
+  transform: scale3d(1, 1, 1);
+}
+
+.explain-cards {padding:0.5rem}
+
+.card-footer {font-size:0.8rem}
+
+
+/* SCROLL DOWN BAR */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+#model_expained {  
+  border-top-left-radius: 20px; 
+  border-bottom-left-radius: 20px; 
+}
+
+
+.explain-cards img {max-width:3rem; display: block;
+  margin-left: auto;
+  margin-right: auto; margin-bottom:1rem}
+
+section {margin-bottom:1.3rem; margin-top:1.3rem}
+

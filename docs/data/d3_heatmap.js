@@ -1,16 +1,16 @@
   // set the dimensions and margins of the graph
-  var margin = {top: 5, right: 25, bottom: 30, left: 60},
+  var margin = {top: 5, right: 25, bottom: 30, left: 100},
     width = 500 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
   
   // append the svg object to the body of the page
   var svg = d3version4.select("#heatmap")
   .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+  .attr("viewBox", `0 0 500 500`)
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
+  
   
   //Read the data
   d3version4.csv("data/cit_density.csv", function(data) {
@@ -42,7 +42,7 @@
   
     // Build color scale
     var myColor = d3version4.scaleSequential()
-      .interpolator(d3version4.interpolateReds)
+      .interpolator(d3version4.interpolatePuBuGn)
       .domain([1,700])
   
     // create a tooltip

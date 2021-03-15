@@ -32,7 +32,7 @@
   <!-- Make versions of D3 cohexist in the same page -->
 
   <script src="https://d3js.org/d3.v4.js"></script> 
-  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> 
   <script>
     d3version4 = d3
     window.d3 = null
@@ -133,9 +133,9 @@
     <nav class="nav-menu">
       <ul>
         <li class="active"><a href="#hero"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="#when"><i class="bx bx-hourglass"></i> <span>time</span></a></li>
         <li><a href="#what"><i class="bx bx-paint"></i><span>contents</span></a></li>
         <li><a href="#where"><i class="bx bx-map "></i> <span>places</span></a></li>
-        <li><a href="#when"><i class="bx bx-hourglass"></i> <span>time</span></a></li>
         <li><a href="#who"><i class="bx bx-body"></i> <span>people</span></a></li>
         <!-- <li><a href="#contact"><i class="bx bx-envelope"></i> <span>Contact</span></a></li> -->
       </ul>
@@ -150,15 +150,6 @@
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
       <h1>Telling Aeneis through museal art</h1>
       <p><span class="typed" data-typed-items="A storytelling about Aeneis contents in mythLOD collection"></span></p>
-        <span class="page_description">
-          <p>In mythLOD collection, each museal artefact has been analysed by an expert, which defined what the artefact represents (conceptual category). Additionally,
-            to some of these interpretations the expert added some literary references in which the scene is depicted. 
-            By analysing these aspects, we found out that Aeneis by Virgil is one of the most referred literary source in mythLOD dataset. </p>
-            <p> In this page the Aeneis are presented from mythLOD perspective. Additionally, the available visualisations have been grouped into 
-              <b>W</b>hat (representing artefacts, literary sources and categories), <b>W</b>here (e.g. places where the items are located), 
-              <b>W</b>hen (e.g. date of an artefact creation), <b>W</b>ho (representing people involved into the creation of artefacts, literary sources and 
-              interpretations). 
-        </p><span>
       </div>
       <div class="col-sm-12 col-md-4">
       </div>
@@ -168,6 +159,138 @@
 
   <main id="main">
 
+<section id="model_expained" style="background-color: #45505b;" data-aos="fade-up">
+  <div class="container mt-2"  container-fluid" >
+    <h1 class="pt-0 pb-1" style="color:white">Introduction</h1>
+    <span class="page_description" style="color:white">
+      <p>In mythLOD collection, each museal artefact has been analysed by an expert, which defined what the artefact represents (conceptual category). Additionally,
+        to some of these interpretations the expert added some literary references in which the scene is depicted. 
+        By analysing these aspects, we found out that Aeneis by Virgil is one of the most referred literary source in mythLOD dataset. </p>
+        <p> In this page the Aeneis are presented from mythLOD perspective. Additionally, the available visualisations have been grouped into 
+          <b>W</b>hat (representing artefacts, literary sources and categories), <b>W</b>here (e.g. places where the items are located), 
+          <b>W</b>hen (e.g. date of an artefact creation), <b>W</b>ho (representing people involved into the creation of artefacts, literary sources and 
+          interpretations). 
+    </p>
+      <div class="row" style="color:#45505b">
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-block explain-cards">
+            <h5 class="card-title mt-3 mb-3">The mythLOD digital collection</h5>
+            <img src="assets/img/artwork.svg">
+            <p class="card-text">mythLOD collection stores a large span of heterogeneous artworks, provided by different responsible entities, created in different periods and from different authors.</p> 
+            <p>mythlod contains<span class="card-numbers">4260 artworks</span></p> 
+            <div class="card-footer">For Example: item XXX, entitled ..., by ....</div>
+      </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-block explain-cards">
+            <h5 class="card-title  mt-3 mb-3">What artworks have in common?</h5>
+            <div class="row">
+              <div class="col-6">
+            <img src="assets/img/artwork.svg"> 
+          </div>
+            <div class="col-6">
+            <img src="assets/img/search.svg">
+          </div>
+            </div> 
+            <p class="card-text">All the artworks represent a mythologic scene, which has been recognised by an expert.<br><b>Simplifying mythLOD datamodel, we can say an expert recognised a certain scene 
+              depicted in each artwork of mythLOD collection.
+            </b></p> 
+            <div class="card-footer">For Example: Hubert Gamba said thet the item XXX represets the category XXX</div>
+      </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-block explain-cards">
+            <h5 class="card-title  mt-3 mb-3">All the depicted scenes has been recorded by the experts, according to an internal taxonomy</h5>
+            <p class="card-text">Here you can see all the categories (or scenes) of the taxonomy which will be reused in the storytelling below</p> 
+            <div class="overflow-auto card-footer" id='list-puntate' style="max-height:10rem; font-size:0.8rem"></div> 
+      </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-block explain-cards">
+            <h5 class="card-title  mt-3 mb-3">Finally, the scene depicted in the artwork has been referenced to the literary resources in which the same scene has been narrated</h5>
+
+            <div class="row">
+              <div class="col-4">
+            <img src="assets/img/artwork.svg"> 
+          </div>
+            <div class="col-4">
+            <img src="assets/img/search.svg">
+          </div>
+          <div class="col-4">
+            <img src="assets/img/books-stack-of-three.svg">
+          </div>
+            </div> 
+            <p>The result is that artworks have been linked to some literary reference due to what they represent.</p>
+            <div class="card-footer">For example: Hubert Gamba states also that category XXX can be found also in Aeneid, XX, 1-3</div> 
+      </div>
+        </div>    
+      </div>
+      
+    </div>
+    
+ </section> 
+
+     <!-- ======= WHEN Section ======= -->
+     <section id="when" class="when">
+      <div class="container" data-aos="fade-up">
+
+        <!-- <div class="section-title float-right">
+          <h2 class="text-right">When</h2>
+        
+      </div>     -->      
+
+        <div class="row">
+          <div class="col-sm-12 col-md-3">
+            <div class="row">
+              <div class="box arrow-right">
+                The timeline answers to the question: <br><br> <span style="font-family: 'Trebuchet MS', sans-serif;">&#8220;Which are the museal objects which shares some theme in common with Aeneis and when have they been created? &#8221;
+              </div>
+            </div>
+            <div class="row">
+              <div class="box arrow-right">
+              Here below is presented a timeline representing mythLOD museal objects referenced to have a depicted scene in common with Aeneis.
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-9">
+          <iframe id="iframe-timeline" src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1IJkxDCrBZKBI03Ffwcx0wG6bhplb4gox0-IHh_H0SAM&font=Default&lang=en&start_at_end=true&initial_zoom=7&start_at_slide=100&height=650' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
+        </div>
+
+
+        </div>
+    </section><!-- End WHEN Section -->
+
+
+    <section id="where" class="where">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+
+
+          <div class="row">
+            <div class="col-sm-12 col-md-3">
+              <div class="row">
+                <div class="box arrow-right">
+                  The map answers to the question: <br><br> <span style="font-family: 'Trebuchet MS', sans-serif;">&#8220;Which are the museal objects which shares some theme in common with Aeneis and where are they currently located?&#8221;</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="box arrow-right">
+                  <p>The map presents items clustered by spatial proximity, by zomming in it is possible to look at the single museal objects and find out more information about them. </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-9">
+              <iframe src="data/map/index.html" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="width:100%;border:none;overflow:hidden;"></iframe>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    </section><!-- End WHERE Section -->
 
 
         <!-- ======= WHAT Section ======= -->
@@ -176,8 +299,7 @@
         <section id="what" class="what section-bg">
           <div class="container container-fluid" data-aos="fade-up">
 
-            <div class="section-title">
-              <!-- <h2>what</h2> -->
+           <!-- <div class="section-title">
               <div class="row">
                 <div class="col-sm-12 col-md-12" style="text-align:left">
                   <p>With "WHAT" we refer to all the cultural objects represented in mythLOD assertions, namely:</p>
@@ -192,7 +314,7 @@
                 <div class="numebers_container"></div>
               </div>
               </div>
-            </div>
+            </div> -->
     
             <div class="row">
               <div class="col-sm-12 col-md-6">
@@ -206,7 +328,7 @@
                   <p>The x-axsis represent Aeneis books, while 50-lines-groups are represented on y-axis.</p>
                 </div>
               </div>
-              <div class="col-sm-12 col-md-6">
+              <div class="col-sm-12 col-md-6 ">
               <div id="heatmap"></div>
             </div>
             </div>
@@ -219,8 +341,8 @@
                   Going deeply with conceptual categories, below are represented together all the keywords and conceptual categories shared between the museal objects and Aneis, taking into account how many times they co-occur
                   in mythLOD dataset.  
                 </div>
-                <img src="data/wordcloud.svg" style="width:inherit">
-                <div class="box arrow-right">
+                <div id="wordcloud"></div>
+                <div class="box arrow-right mb-3">
                   Since Aeneis shares common themes (conceptual categories) with mythLOD museal items, below are represented:
                   <ul>
                     <li>The 10 most recurrent <b>keyword</b> of all the cultural objects which have Aeneis as a reference</li>
@@ -268,70 +390,10 @@
         <!-- End WHAT Section -->
 
     <!-- ======= Where Section ======= -->
-    <section id="where" class="where">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <!-- <h2>Where</h2> -->
-          <div class="row">
-            <div class="col-sm-12 col-md-6">
-            <p>Here below is presented a map showing mythLOD museal objects referenced to have a depicted scene in common with Aeneis.</p>
-          </div>
-          <div class="col-sm-12 col-md-6">
-            <div class="box arrow-bottom">
-              Which are the museal objects which shares some theme in common with Aeneis and where are they currently located?
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <iframe src="data/map/index.html" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="width:100%;border:none;overflow:hidden;"></iframe>
-        </div>
 
 
-        <div class="row" style="display:none"> 
-          <div class="col-sm-12 col-md-4 w-100"><div class="box arrow-right">
-            This is a box with some content and an arrow at the bottom.
-          </div></div>
-          <div class="col-sm-12 col-md-8 m-0 p-0"><div id="whereChartOne" class="d-flex justify-content-center"></div></div>
-      </div>
-      <div class="row"> 
-        <div class="col-md-12 col-lg-4"><div class="box arrow-right">
-          This is a box with some content and an arrow at the bottom.
-        </div></div>
-        <div class="col-md-12 col-lg-8 m-0 p-0"><div id="whereChartTwo" class="d-flex justify-content-center"></div></div>
-      </div>
-    </div>
 
-    </section><!-- End WHERE Section -->
 
-    <!-- ======= WHEN Section ======= -->
-    <section id="when" class="when">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <!-- <h2>When</h2> -->
-          <div class="row">
-            <div class="col-sm-12 col-md-6">
-            <p>Here below is presented a timeline representing mythLOD museal objects referenced to have a depicted scene in common with Aeneis.</p>
-          </div>
-          <div class="col-sm-12 col-md-6">
-            <div class="box arrow-bottom">
-              Which are the museal objects which shares some theme in common with Aeneis and when have they been created? 
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <div class="row">
-
-          <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1IJkxDCrBZKBI03Ffwcx0wG6bhplb4gox0-IHh_H0SAM&font=Default&lang=en&start_at_end=true&initial_zoom=7&start_at_slide=100&height=650' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
-
-        </div>
-
-      </div>
-    </section><!-- End WHEN Section -->
 
 
     <!-- ======= WHO Section ======= -->
@@ -344,7 +406,8 @@
         </div>
 
         <div class="row">
-          <p>INSERT HERE WHO CONTENT</p>
+          <div class="col-md-12 col-lg-8 m-0 p-0"><div id="network_ppl" class="d-flex justify-content-center"></div></div>
+
         </div>
 
       </div>
@@ -357,6 +420,7 @@
     <div class="container">
       <h3>Brandon Johnson</h3>
       <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
       <div class="social-links">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -395,6 +459,37 @@
     $(document).ready(function(){
         $("#top10BarsKeywords").load("data/top_10_categories_bar.html");
     });
+    $(document).ready(function(){
+        $("#network_ppl").load("data/network_ppl.html");
+    });
+    $(document).ready(function(){
+        $("#wordcloud").load("data/wordcloud/index.html");
+    });
+  </script>
+
+
+<!-- PERSONAL CSS OVER IFRAMES 
+<script>
+  var cssLink = document.createElement("link");
+  cssLink.href = "assets/css/style.css"; 
+  cssLink.rel = "stylesheet"; 
+  cssLink.type = "text/css"; 
+  frames['iframe-timeline'].contentDocument.head.appendChild(cssLink);
+  console.log(frames['iframe-timeline'].contentDocument.head.appendChild(cssLink))
+  </script>
+-->
+
+<!-- change arrow verse according to screen size-->
+<script>
+  $(window).on('resize', function() {
+    if($(window).width() < 480) {
+        $('.box').addClass('arrow-bottom');
+        $('.box').removeClass('arrow-right');
+    }else{
+        $('.box').addClass('arrow-right');
+        $('.box').removeClass('arrow-bottom');
+    }
+})
   </script>
 
 
@@ -421,7 +516,11 @@
 <script type='text/javascript' src='data/map/leaf-demo.js'></script> -->
 <!-- <script type="text/javascript" src="Horizontal-Vertical-Timeline-Plugin-jQuery/dist/js/timeline.min.js"></script> -->
 <script type="text/javascript" src="data/d3_heatmap.js"></script>
-
+<script type="text/javascript" src="data/cat_list.js"></script>
+<script src="data/wordcloud/d3.layout.cloud.js"></script>
+<script src="data/wordcloud/wordcloud.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.3/lib/alea.min.js"></script>
+<script src="data/wordcloud/wolfstar.json"></script>
 
 
 
